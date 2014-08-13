@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" version="1.9" modules="professional" RootPath=".">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="CTRLS" Value="3"/>
+    <ROW Property="ARPPRODUCTICON" Value="controlPanelIcon.exe"/>
+    <ROW Property="DialogBitmap" Value="installer_background_dialog.jpg"/>
+    <ROW Property="Manufacturer" Value="Code Unit"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="HREF Reference File Renamer"/>
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="BannerBitmap" Value="installer_background.jpg"/>
+    <ROW Property="ProductVersion" Value="1.0.1"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{A29B3D04-855A-4343-9144-B924F0D215C8}"/>
+    <ROW Property="ProductCode" Value="{55452B03-FC87-4DDF-8BD8-66E2E7B1A1E7}"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" Directory_Parent="" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="Description.txt" ComponentId="{9EE12A7B-BEF1-4053-B7DE-6D4FEDA8F9B3}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Description.txt" FullKeyPath="TARGETDIR"/>
+    <ROW Component="HREF_Reference_File_Renamer.exe" ComponentId="{7AE760DB-2B9C-4B32-B1B7-29920F1B83F2}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="HREF_Reference_File_Renamer.exe" FullKeyPath="TARGETDIR\HREF Reference File Renamer.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Feature_Parent="" Title="MainFeature" Description="Description" Display="2" Level="1" Directory_="TARGETDIR" Attributes="0" Components="HREF_Reference_File_Renamer.exe Description.txt"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Description.txt" Component_="Description.txt" FileName="Descri~1.txt|Description.txt" Version="" Language="" Attributes="" SourcePath="..\..\Description.txt" SelfReg="false"/>
+    <ROW File="HREF_Reference_File_Renamer.exe" Component_="HREF_Reference_File_Renamer.exe" FileName="HREFRe~1.exe|HREF Reference File Renamer.exe" Version="" Language="" Attributes="" SourcePath="..\HREF Reference File Renamer\obj\Release\HREF Reference File Renamer.exe" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Source="" Target="A higher version of [ProductName] is installed."/>
+    <ROW Action="AI_ViewReadme" Type="194" Source="viewer.exe" Target="[#Description.txt]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="AI_LaunchApp" Type="194" Source="viewer.exe" Target="[#HREF_Reference_File_Renamer.exe]"/>
+    <ROW Action="SET_TARGETDIR" Type="307" Source="TARGETDIR" Target="[ProgramFilesFolder]\[ProductName]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="UpgradeCode" VersionMin="" VersionMax="ProductVersion" Language="" Attributes="1025" Remove=""/>
+    <ROW UpgradeCode="UpgradeCode" VersionMin="ProductVersion" VersionMax="" Language="" Attributes="2" Remove=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMergeModsComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="HREF_Reference_File_Renamer_1.0_Beta" Directory_="SHORTCUTDIR" Name="HREFRe~1.0Be|HREF Reference File Renamer 1.0 Beta" Component_="Description.txt" Target="[TARGETDIR]\HREF Reference File Renamer.exe" Arguments="" Description="" Hotkey="0" Icon_="HREF_Reference_File_Renamer.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Uninstall_HREF_Reference_File_Renamer" Directory_="SHORTCUTDIR" Name="Uninst~1|Uninstall HREF Reference File Renamer" Component_="Description.txt" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="" Hotkey="0" Icon_="SystemFolder_msiexec.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="HREF_Reference_File_Renamer.exe" SourcePath="Images\HREF_Icon.ico" Index="0"/>
+    <ROW Name="SystemFolder_msiexec.exe" SourcePath="&lt;uninstall.ico&gt;" Index="0"/>
+    <ROW Name="controlPanelIcon.exe" SourcePath="..\HREF Reference File Renamer\Images\HREF_Icon.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="installer_background.jpg" SourcePath="Images\installer_background.jpg"/>
+    <ROW Name="installer_background_dialog.jpg" SourcePath="Images\installer_background_dialog.jpg"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;viewer.exe&gt;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ATTRIBUTE name="Start" value="WelcomeDlg FolderDlg VerifyReadyDlg"/>
+    <ATTRIBUTE name="Progress" value="ProgressDlg"/>
+    <ATTRIBUTE name="End" value="ExitDialog"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMediaComponent">
+    <ATTRIBUTE name="InstallationType" value="1"/>
+    <ATTRIBUTE name="MediaSize" value="0"/>
+    <ATTRIBUTE name="Compress" value="0"/>
+    <ATTRIBUTE name="Package" value="6"/>
+    <ATTRIBUTE name="PackageName" value="Release\HREF Reference File Renamer Installer"/>
+    <ATTRIBUTE name="IconPath" value="Images\HREF_Icon.ico?0"/>
+  </COMPONENT>
+</DOCUMENT>

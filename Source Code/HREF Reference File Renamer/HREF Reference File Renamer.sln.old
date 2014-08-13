@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HREF Reference File Renamer", "HREF Reference File Renamer.csproj", "{05E8F0DF-90AA-4AED-92E4-5BFECED66571}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{05E8F0DF-90AA-4AED-92E4-5BFECED66571}.Debug.ActiveCfg = Debug|.NET
+		{05E8F0DF-90AA-4AED-92E4-5BFECED66571}.Debug.Build.0 = Debug|.NET
+		{05E8F0DF-90AA-4AED-92E4-5BFECED66571}.Release.ActiveCfg = Release|.NET
+		{05E8F0DF-90AA-4AED-92E4-5BFECED66571}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
